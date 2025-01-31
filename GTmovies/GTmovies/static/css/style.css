@@ -1,0 +1,44 @@
+.bg-index{
+  background: url("../../static/img/background.jpg") no-repeat fixed;
+  background-size: 100% auto;
+}
+
+.navbar a.nav-link {
+  color: #FFFEF6 !important;
+}
+
+.bg-dark {
+  background-color: #070e3d !important;
+}
+
+.ms-footer {
+  background-color: #070e3d;
+}
+
+.ms-footer p {
+  color: #d5d9e3;
+  font-size: 13px;
+}
+/* navy 070e3d
+white d5d9e3
+gold FFD700
+*/
+
+.ms-footer a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.ms-footer-bottom span{
+  font-size: 13px;
+  line-height: 38px;
+}
+
+.ms-footer-bottom a {
+  color: #d5d9e3;
+  text-decoration: none;
+}
+
+.ms-footer-bottom a:hover {
+  color: #FFD700;
+}
