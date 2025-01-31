@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+OMDB_API_KEY = os.getenv('OMBD_API_KEY', 'b6f333b9')
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'movies',
     'accounts',
+    'moviepage',
 ]
 
 MIDDLEWARE = [
@@ -128,4 +129,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'GTmovies/static/',
+
 ]
