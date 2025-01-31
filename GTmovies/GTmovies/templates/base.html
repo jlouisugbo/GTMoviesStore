@@ -13,25 +13,31 @@
 
   <body>
     <!-- Header -->
-    <nav class="p-3 navbar navbar-dark bg-dark navbar-expand-lg">
-      <div class="container">
-        <a class="navbar-brand" href="{% url 'home.index' %}">
-          <img src="{% static 'img/logo.png' %}" alt="logo" height="40" />
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ms-auto navbar-ml">
-            <a class="nav-link" href="{% url 'home.index' %}">Home</a>
-            <a class="nav-link" href="{% url 'home.about' %}">About</a>
-            <a class="nav-link" href="{% url 'movies.index' %}">Movies</a>
+      <nav class="p-3 navbar navbar-dark bg-dark navbar-expand-lg">
+          <div class="container">
+              <!-- Brand/Logo -->
+              <a class="navbar-brand" href="{% url 'home.index' %}">
+                  <img src="{% static 'img/logo.png' %}" alt="logo" height="40" />
+              </a>
+
+              <!-- Navbar Links and Search Form -->
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <!-- Navigation Links -->
+                  <div class="navbar-nav ms-auto me-3">
+                      <a class="nav-link" href="{% url 'home.index' %}">Home</a>
+                      <a class="nav-link" href="{% url 'home.about' %}">About</a>
+                      <a class="nav-link" href="{% url 'movies.index' %}">Movies</a>
+                  </div>
+
+                  <!-- Search Form -->
+                  <form method="get" action="{% url 'moviepage.search_movie' %}" class="d-flex">
+                      <input class="form-control me-2" type="text" name="query" placeholder="Search for a movie..." aria-label="Search">
+                      <button class="btn btn-outline-light" type="submit">Search</button>
+                  </form>
+              </div>
           </div>
-        </div>
-      </div>
-    </nav>
-    <!-- Header -->
+      </nav>
+      <!-- Header -->
 
     <div>
       {% block content %}

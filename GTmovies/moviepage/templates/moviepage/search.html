@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'moviepage/search.css' %}">
+<div class="container">
+    <div class="search-results">
+        <h1>Search Results</h1>
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error }}
+            </div>
+        {% endif %}
+        {% if movie %}
+            <div class="movie-card">
+                <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
+                <div class="movie-info">
+                    <h2>{{ movie.Title }} ({{ movie.Year }})</h2>
+                    <p><strong>Rated:</strong> {{ movie.Rated }}</p>
+                    <p><strong>Released:</strong> {{ movie.Released }}</p>
+                    <p><strong>Genre:</strong> {{ movie.Genre }}</p>
+                    <p><strong>Actors:</strong> {{ movie.Actors }}</p>
+                    <p><strong>Plot:</strong> {{ movie.Plot }}</p>
+                    <p><strong>IMDB Rating:</strong> {{ movie.imdbRating }}</p>
+                </div>
+            </div>
+        {% else %}
+            <p class="no-results">No results found. Try another search!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

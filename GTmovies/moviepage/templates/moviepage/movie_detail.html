@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'moviepage/movie_detail.css' %}">
+<div class="container">
+    <div class="movie-details">
+        <div class="movie-poster">
+            <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
+        </div>
+        <div class="movie-info">
+            <h1>{{ movie.Title }} ({{ movie.Year }})</h1>
+            <p><strong>Movie/Show:</strong> {% if movie.Type == "movie" %} Movie
+                {% elif movie.Type == "series" %} TV Show
+                {% else %} This is of type: {{ movie.Type }}
+                {% endif %}</p>
+            <p><strong>Rated:</strong> {{ movie.Rated }}</p>
+            {% if movie.Type == "movie" %} <p><strong>Runtime:</strong> {{ movie.Runtime }}
+            {% endif %}</p>
+            <p><strong>Released:</strong> {{ movie.Released }}</p>
+            <p><strong>Genre:</strong> {{ movie.Genre }}</p>
+            <p><strong>Director:</strong> {{ movie.Director }}</p>
+            <p><strong>Writer(s):</strong> {{ movie.Writer }}</p>
+            <p><strong>Actors:</strong> {{ movie.Actors }}</p>
+            <p><strong>Plot:</strong> {{ movie.Plot }}</p>
+            <p><strong>IMDB Rating:</strong> {{ movie.imdbRating }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
