@@ -25,6 +25,5 @@ urlpatterns = [
     path('home/', include('home.urls')),
     path('movies/', include('movies.urls')),
     path('accounts/', include('accounts.urls')),
-    path('accounts/login/', LoginView.as_view(template_name='accounts/login.html'), name='login'),
     path('moviepage/', include('moviepage.urls')),
 ]
