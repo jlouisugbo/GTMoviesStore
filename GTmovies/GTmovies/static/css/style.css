@@ -1,4 +1,4 @@
-.bg-index{
+.bg-index {
   background: url("../../static/img/background.jpg") no-repeat fixed;
   background-size: 100% auto;
 }
@@ -29,26 +29,82 @@
   color: #d5d9e3;
   font-size: 13px;
 }
-/* navy 070e3d
-white d5d9e3
-gold FFD700
-*/
 
-.ms-footer a:hover {
-  color: #ffffff;
-  text-decoration: none;
+/* Styling for the Password Reset Page */
+.card-body form {
+    padding: 2rem;
 }
 
-.ms-footer-bottom span{
-  font-size: 13px;
-  line-height: 38px;
+.card-body h2 {
+    color: #FFD700;
+}
+
+.btn {
+    background-color: #070e3d !important;
+    color: white;
+    border-radius: 0.25rem;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #FFD700;
+    color: #070e3d;
+}
+
+.form-control {
+    border-radius: 0.25rem;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.form-control:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+.text-center a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+/* Adjusting Layout for Password Reset */
+.container {
+    max-width: 800px;
+}
+
+.card {
+    margin-top: 50px;
+}
+
+.navbar {
+    background-color: #070e3d !important;
+}
+
+.navbar a.nav-link {
+    color: #FFFEF6 !important;
+}
+
+.navbar a.nav-link:hover {
+    color: #FFD700 !important;
+}
+
+.ms-footer-bottom span {
+    font-size: 13px;
+    line-height: 38px;
 }
 
 .ms-footer-bottom a {
-  color: #d5d9e3;
-  text-decoration: none;
+    color: #d5d9e3;
+    text-decoration: none;
 }
 
 .ms-footer-bottom a:hover {
-  color: #FFD700;
+    color: #FFD700;
 }
