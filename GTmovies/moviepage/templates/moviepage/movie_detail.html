@@ -9,10 +9,6 @@
         </div>
         <div class="movie-info">
             <h1>{{ movie.Title }} ({{ movie.Year }})</h1>
-            <p><strong>Movie/Show:</strong> {% if movie.Type == "movie" %} Movie
-                {% elif movie.Type == "series" %} TV Show
-                {% else %} This is of type: {{ movie.Type }}
-                {% endif %}</p>
             <p><strong>Rated:</strong> {{ movie.Rated }}</p>
             {% if movie.Type == "movie" %} <p><strong>Runtime:</strong> {{ movie.Runtime }}
             {% endif %}</p>
