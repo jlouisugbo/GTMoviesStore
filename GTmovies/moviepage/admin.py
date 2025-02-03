@@ -8,7 +8,7 @@ from django.conf import settings
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ('title', 'year', 'director', 'genre', 'created_at', 'updated_at')
+    list_display = ('title', 'year', 'genre', 'created_at', 'updated_at')
     search_fields = ('title', 'year', 'genre')
     list_filter = ('year', 'genre')
     ordering = ('-created_at',)
