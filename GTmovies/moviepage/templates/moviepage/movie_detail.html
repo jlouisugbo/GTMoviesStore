@@ -2,23 +2,34 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'moviepage/movie_detail.css' %}">
-<div class="container">
-    <div class="movie-details">
-        <div class="movie-poster">
-            <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster" style="width: 1000px; height: auto;">
         </div>
-        <div class="movie-info">
-            <h1>{{ movie.Title }} ({{ movie.Year }})</h1>
-            <p><strong>Rated:</strong> {{ movie.Rated }}</p>
-            {% if movie.Type == "movie" %} <p><strong>Runtime:</strong> {{ movie.Runtime }}
-            {% endif %}</p>
-            <p><strong>Released:</strong> {{ movie.Released }}</p>
-            <p><strong>Genre:</strong> {{ movie.Genre }}</p>
-            <p><strong>Director:</strong> {{ movie.Director }}</p>
-            <p><strong>Writer(s):</strong> {{ movie.Writer }}</p>
-            <p><strong>Actors:</strong> {{ movie.Actors }}</p>
-            <p><strong>Plot:</strong> {{ movie.Plot }}</p>
-            <p><strong>IMDB Rating:</strong> {{ movie.imdbRating }}</p>
+
+        <div class="col-md-9">
+            <h2>{{ movie.title }} ({{ movie.year }})</h2>
+            <p><strong>Rated:</strong> {{ movie.rated }}</p>
+            <p><strong>Runtime:</strong> {{ movie.runtime }}</p>
+            <p><strong>Released:</strong> {{ movie.released }}</p>
+            <p><strong>Genre:</strong> {{ movie.genre }}</p>
+            <p><strong>Director:</strong> {{ movie.director }}</p>
+            <p><strong>Writer(s):</strong> {{ movie.writer }}</p>
+            <p><strong>Actors:</strong> {{ movie.actors }}</p>
+            <p><strong>Plot:</strong> {{ movie.plot }}</p>
+            <p><strong>IMDB Rating:</strong> {{ movie.imdb_rating }}</p>
+            <p><strong>Awards:</strong> {{ movie.awards }}</p>
+            <p><strong>Language:</strong> {{ movie.language }}</p>
+            <p><strong>Country:</strong> {{ movie.country }}</p>
+            <p class="text-danger font-weight-bold">${{ movie.price }}</p>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col text-center">
+            <button class="btn btn-warning mr-2">Add to Cart</button>
+            <button class="btn btn-success">Buy Now</button>
         </div>
     </div>
 </div>

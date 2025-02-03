@@ -18,7 +18,11 @@
                     <div class="movie-card">
                         <img src="{{ movie.poster }}" alt="{{ movie.title }}">
                         <div class="movie-info">
-                            <h2>{{ movie.title }} ({{ movie.year }})</h2>
+                            <h2>
+                                <a href="{% url 'movie_detail' movie.imdb_id %}">
+                                    {{ movie.title }} ({{ movie.year }})
+                                </a>
+                            </h2>
                             <p><strong>Rated:</strong> {{ movie.rated }}</p>
                             <p><strong>Released:</strong> {{ movie.released }}</p>
                             <p><strong>Genre:</strong> {{ movie.genre }}</p>

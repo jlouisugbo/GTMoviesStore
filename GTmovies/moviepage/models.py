@@ -16,7 +16,7 @@ class Movie(models.Model):
     awards = models.TextField(blank=True, null=True)
     poster = models.URLField(blank=True, null=True)
     imdb_rating = models.CharField(max_length=5, blank=True, null=True)
-    imdb_id = models.CharField(max_length=20, null=True, unique=True)
+    imdb_id = models.CharField(max_length=20, unique=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     available = models.BooleanField(default=True)

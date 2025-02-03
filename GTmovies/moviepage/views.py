@@ -5,6 +5,9 @@ from urllib.parse import quote
 
 from .models import Movie
 
+def movie_detail(request, movie_id):
+    movie = get_object_or_404(Movie, imdb_id=movie_id)
+    return render(request, 'moviepage/movie_detail.html', {'movie': movie})
 
 def search_movie(request):
     search = 'moviepage/search.html'
@@ -30,10 +33,6 @@ def search_movie(request):
             return render(request, search, {'error': 'Failed to fetch data from the API.'})
 
     return render(request, search)
-
-def movie_detail(request,movieid):
-    movie = get_object_or_404(Movie,imdb=movieid)
-    return render(request, 'moviepage/movie_detail.html', {'movie': movie})
 
 '''
 The add_movies function is used to add movies to the database. 
