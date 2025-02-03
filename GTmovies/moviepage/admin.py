@@ -48,13 +48,13 @@ class MovieAdmin(admin.ModelAdmin):
     Refresh all movies in the database by fetching the latest data from the API.
     """
     api_key = settings.OMDB_API_KEY
-    movies = Movie.objects.all()  # Get all stored movies
+    movies = Movie.objects.all()  
 
     added_count = 0
     updated_count = 0
 
     for movie in movies:
-        url = f"https://www.omdbapi.com/?apikey={api_key}&i={movie.imdb_id}"  # Use IMDb ID for accuracy
+        url = f"https://www.omdbapi.com/?apikey={api_key}&i={movie.imdb_id}" 
         response = requests.get(url)
 
         if response.status_code == 200:
