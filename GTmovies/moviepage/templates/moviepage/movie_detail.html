@@ -30,27 +30,7 @@
             <p class="text-danger font-weight-bold">${{ movie.price }}</p>
             <button class="btn btn-warning mr-2">Add to Cart</button>
             <button class="btn btn-success">Buy Now</button>
-            <h2>Reviews</h2>
-            <hr />
             <ul class="list-group">
-              {% for review in reviews %}
-              <li class="list-group-item pb-3 pt-3">
-                <h5 class="card-title">
-                  Review by {{ review.user.username }}
-                </h5>
-                <h6 class="card-subtitle mb-2 text-muted">
-                  {{ review.date }}
-                </h6>
-                <p class="card-text">{{ review.comment }}</p>
-                  {% if user.is_authenticated and user == review.user %}
-                <a class="btn btn-primary"
-                  href="{% url 'moviepage.edit_review' movie.imdb_id review.id %}">Edit
-                </a>
-                <a class="btn btn-danger" href="{% url 'moviepage.delete_review' movie.imdb_id review.id  %}">Delete</a>
-                {% endif %}
-              </li>
-              {% endfor %}
-            </ul>
             {% if user.is_authenticated %}
                 <div class="container mt-4">
                   <div class="row justify-content-center">
@@ -79,7 +59,27 @@
                     </div>
                   </div>
                 </div>
+              {% endif %}
+            <h2>Reviews</h2>
+            <hr />
+              {% for review in reviews %}
+              <li class="list-group-item pb-3 pt-3">
+                <h5 class="card-title">
+                  Review by {{ review.user.username }}
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  {{ review.date }}
+                </h6>
+                <p class="card-text">{{ review.comment }}</p>
+                  {% if user.is_authenticated and user == review.user %}
+                <a class="btn btn-primary"
+                  href="{% url 'moviepage.edit_review' movie.imdb_id review.id %}">Edit
+                </a>
+                <a class="btn btn-danger" href="{% url 'moviepage.delete_review' movie.imdb_id review.id  %}">Delete</a>
                 {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
         </div>
     </div>
 </div>
