@@ -1,11 +1,13 @@
 from django.urls import path
 from django.shortcuts import redirect
 from django.contrib import admin, messages
-from .models import Movie
+from .models import Movie, Review
 import requests
 from django.conf import settings
 
-
+@admin.register(Review)
+class MovieAdmin(admin.ModelAdmin):
+    search_fields = ['name']
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
     list_display = ('title', 'year', 'genre', 'created_at', 'updated_at')

@@ -1,13 +1,14 @@
 import requests
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 from urllib.parse import quote
-
-from .models import Movie
+from django.contrib.auth.decorators import login_required
+from .models import Movie, Review
 
 def movie_detail(request, movie_id):
     movie = get_object_or_404(Movie, imdb_id=movie_id)
-    return render(request, 'moviepage/movie_detail.html', {'movie': movie})
+    reviews = Review.objects.filter(movie=movie)
+    return render(request, 'moviepage/movie_detail.html', {'movie': movie, 'reviews': reviews})
 
 def search_movie(request):
     search = 'moviepage/search.html'
@@ -72,3 +73,49 @@ def add_movies(movies,query):
                 movie_obj.save()
         else:
             continue
+
+@login_required
+def create_review(request, movie_id):
+    movie = get_object_or_404(Movie, imdb_id=movie_id)
+    reviews = Review.objects.filter(movie=movie)
+    if request.method == 'POST' and request.POST['comment'] != '':
+        movie = get_object_or_404(Movie, imdb_id=movie_id)
+        review = Review()
+        review.comment = request.POST['comment']
+        review.movie = movie
+        review.user = request.user
+        review.imdb_id = movie.imdb_id
+        review.save()
+        return render(request, 'moviepage/movie_detail.html', {'movie': movie, 'reviews': reviews})
+    else:
+        movie = get_object_or_404(Movie, imdb_id=movie_id)
+        return render(request, 'moviepage/movie_detail.html', {'movie': movie, 'reviews': reviews})
+
+@login_required
+def edit_review(request, movie_id, review_id):
+   review = get_object_or_404(Review, id=review_id)
+   movie = get_object_or_404(Movie, imdb_id=movie_id)
+   reviews = Review.objects.filter(movie=movie)
+   if request.user != review.user:
+       return render(request, 'moviepage/movie_detail.html', {'movie': movie, 'reviews': reviews})
+   if request.method == 'GET':
+       template_data = {}
+       template_data['title'] = 'Edit Review'
+       template_data['review'] = review
+       return render(request, 'moviepage/edit_review.html',{'template_data': template_data})
+   elif request.method == 'POST' and request.POST['comment'] != '':
+       review = Review.objects.get(id=review_id)
+       review.comment = request.POST['comment'] + ' (edited)'
+       review.save()
+       return render(request, 'moviepage/movie_detail.html', {'movie': movie, 'reviews': reviews})
+   else:
+       return render(request, 'moviepage/movie_detail.html', {'movie': movie, 'reviews': reviews})
+
+
+@login_required
+def delete_review(request, movie_id, review_id):
+   movie = get_object_or_404(Movie, imdb_id=movie_id)
+   reviews = Review.objects.filter(movie=movie)
+   review = get_object_or_404(Review, id=review_id, user=request.user)
+   review.delete()
+   return render(request, 'moviepage/movie_detail.html', {'movie': movie, 'reviews': reviews})
