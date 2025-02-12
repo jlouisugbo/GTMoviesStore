@@ -21,6 +21,7 @@ class Movie(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     available = models.BooleanField(default=True)
+    price = 10
 
     status = models.CharField(
         max_length=50,
