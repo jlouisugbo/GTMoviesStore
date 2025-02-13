@@ -9,7 +9,9 @@ def index(request):
     cart = request.session.get('cart', {})
     movie_ids = list(cart.keys())
     if (movie_ids != []):
-        movies_in_cart = Movie.objects.filter(imdb_id=movie_ids)
+        print(f"Movie IDs in cart: {movie_ids}")
+        movies_in_cart = Movie.objects.filter(imdb_id__in=movie_ids)
+        print(f"Movies in cart: {movies_in_cart}")
         cart_total = calculate_cart_total(cart, movies_in_cart)
 
     template_data = {}
@@ -21,8 +23,8 @@ def index(request):
 def add(request, id):
     get_object_or_404(Movie, imdb_id=id)
     cart = request.session.get('cart', {})
-    new_quantity = int(request.POST.get('quantity', 1))
-    cart[id] = cart.get(id, 0) + new_quantity
+    cart[id] = request.POST['quantity']
+    print(cart)
     request.session['cart'] = cart
     return redirect('cart.index')
 
