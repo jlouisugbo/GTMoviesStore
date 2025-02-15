@@ -42,7 +42,7 @@
                         <span class="ms-2">${{ template_data.cart_total }}</span>
                     </a>
                     {% if template_data.movies_in_cart|length > 0 %}
-                    <a href="{% url 'cart.clear' %}" class="btn btn-danger mb-2 ms-3 text-decoration-none">
+                    <a href="{% url 'cart.clear' %}" class="btn mb-2 ms-3 text-decoration-none">
                         <b>Remove all movies from Cart</b>
                     </a>
                     {% endif %}
