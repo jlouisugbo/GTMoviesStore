@@ -26,7 +26,10 @@
                                 <!-- <td>{{ movie.imdb_id }}</td> -->
                                 <td>{{ movie.title }}</td>
                                 <td>${{ movie.price }}</td>
-                                <td>{{ request.session.cart|get_quantity:movie.imdb_id }}</td>
+                                <td style="text-align: center;">
+                                    {{ request.session.cart|get_quantity:movie.imdb_id }} <br>
+                                    <a href="{% url 'cart.remove' id=movie.imdb_id %}" style="color: red;">Remove</a>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
