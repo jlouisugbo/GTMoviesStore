@@ -14,7 +14,7 @@
                 <table class="table table-bordered table-striped text-center">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                            <!-- <th scope="col">ID</th> -->
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
@@ -23,7 +23,7 @@
                     <tbody>
                         {% for movie in template_data.movies_in_cart %}
                             <tr>
-                                <td>{{ movie.imdb_id }}</td>
+                                <!-- <td>{{ movie.imdb_id }}</td> -->
                                 <td>{{ movie.title }}</td>
                                 <td>${{ movie.price }}</td>
                                 <td>{{ request.session.cart|get_quantity:movie.imdb_id }}</td>
@@ -35,11 +35,12 @@
             <div class="row">
                 <div class="text-end">
                     <a class="btn btn-outline-secondary mb-2">
-                        <b>Total to pay:</b> ${{ template_data.cart_total }}</a>
+                        <b>Buy Now:</b>
+                        <span class="ms-2">${{ template_data.cart_total }}</span>
+                    </a>
                     {% if template_data.movies_in_cart|length > 0 %}
-                    <a href="{% url 'cart.clear' %}">
-                        <b class="btn btn-danger mb-2">Remove all movies from Cart   
-                        </b>
+                    <a href="{% url 'cart.clear' %}" class="btn btn-danger mb-2 ms-3 text-decoration-none">
+                        <b>Remove all movies from Cart</b>
                     </a>
                     {% endif %}
                 </div>

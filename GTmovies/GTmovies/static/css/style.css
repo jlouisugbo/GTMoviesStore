@@ -1,38 +1,44 @@
 .bg-index {
-  background: url("../../static/img/background.jpg") no-repeat fixed;
-  background-size: 100% auto;
+    background: url("../../static/img/background.jpg") no-repeat fixed;
+    background-size: 100% auto;
 }
 
 .navbar a.nav-link {
-  color: #FFFEF6 !important;
+    color: #FFFEF6 !important;
 }
 
 .bg-dark {
-  background-color: #070e3d !important;
+    background-color: #070e3d !important;
 }
 
 .ms-footer {
-  background-color: #070e3d;
+    background-color: #070e3d;
 }
 
 .img-card-200 {
-   width: fit-content;
-   max-height: 200px;
+    width: fit-content;
+    max-height: 200px;
 }
 
 .img-card-400 {
-   width: fit-content;
-   max-height: 400px;
+    width: fit-content;
+    max-height: 400px;
 }
 
 .ms-footer p {
-  color: #d5d9e3;
-  font-size: 13px;
+    color: #d5d9e3;
+    font-size: 13px;
 }
 
 /* Styling for the Password Reset Page */
 .card-body form {
     padding: 2rem;
+}
+
+.about-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .card-body h2 {
@@ -49,9 +55,15 @@
     font-size: 1rem;
 }
 
+/* Change button background and text color on hover */
 .btn:hover {
     background-color: #FFD700;
     color: #070e3d;
+}
+
+/* Change only the button text color on hover */
+.btn:hover {
+    color: #FFD700 !important;
 }
 
 .form-control {
@@ -83,28 +95,63 @@
     margin-top: 50px;
 }
 
+
 .navbar {
     background-color: #070e3d !important;
 }
+
 
 .navbar a.nav-link {
     color: #FFFEF6 !important;
 }
 
+
 .navbar a.nav-link:hover {
     color: #FFD700 !important;
 }
+
 
 .ms-footer-bottom span {
     font-size: 13px;
     line-height: 38px;
 }
 
+
 .ms-footer-bottom a {
     color: #d5d9e3;
     text-decoration: none;
 }
 
+
 .ms-footer-bottom a:hover {
     color: #FFD700;
 }
+
+.search-btn {
+    background-color: #070e3d !important;
+    color: white;
+    border-radius: 0.25rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.search-btn .form-control, .btn {
+    height: fit-content;
+    display: flex;
+    width: fit-content;
+}
+
+.nav-link:hover{
+    color: #FFD700 !important;
+}
+
+.navbar-nav {
+    padding-right: 15px;
+}
+
+.text-end {
+    display: flex;
+}
+
+
