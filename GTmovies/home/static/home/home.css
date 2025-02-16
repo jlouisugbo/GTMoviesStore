@@ -1,0 +1,19 @@
+#login {
+    align-content: center;
+    width: 15%;
+}
+
+#signup {
+    align-content: center;
+}
+
+#start {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#welcome {
+    font-size: 35px;
+    padding-bottom: 2%;
+}
