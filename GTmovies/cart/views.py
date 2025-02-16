@@ -27,10 +27,19 @@ def add(request, id):
         cart[id] += int(request.POST['quantity'])
     if id not in cart:
         cart[id] = int(request.POST['quantity'])
-    print(cart)
     request.session['cart'] = cart
     return redirect('cart.index')
 
 def clear(request):
     request.session['cart'] = {}
+    return redirect('cart.index')
+
+def remove(request, id):
+    get_object_or_404(Movie, imdb_id=id)
+    cart = request.session.get('cart', {})
+    if (cart[id] - 1 > 0):
+        cart[id] = int(cart[id] - 1)
+    if int (cart[id] - 1 == 0):
+        del cart[id]
+    request.session['cart'] = cart
     return redirect('cart.index')
