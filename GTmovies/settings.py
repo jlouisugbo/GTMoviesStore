@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%b)^fuzu9enkc6^mic^l1&8aztqyasj!%k$1h3*p8677(3_902
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gt-movies-store.onrender.com']
+ALLOWED_HOSTS = ['gt-movies-store.onrender.com',  '127.0.0.1']
 
 OMDB_API_KEY = os.getenv('OMBD_API_KEY', 'b6f333b9')
 # Application definition
@@ -126,14 +126,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-import os
-
-
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'GTmovies/static',
-]
+STATICFILES_DIRS = [ BASE_DIR / 'GTmovies/static',]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
