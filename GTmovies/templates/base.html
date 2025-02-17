@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon.png' %}">
 
     <style>
         html, body {
@@ -59,13 +60,13 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-100vw); 
+                transform: translateX(-100%); 
             }
         }
 
         @media (max-width: 767px) {
             .movie-scroll {
-                animation: scroll 200s linear infinite;
+                animation: scroll 150 linear infinite;
             }
             .movie-poster {
                 height: 150px;
