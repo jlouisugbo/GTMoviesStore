@@ -121,7 +121,6 @@ html, body {
 .form-control {
     border-radius: 0.25rem;
     padding: 10px;
-    margin-bottom: 15px;
 }
 
 .form-control:focus {
@@ -188,4 +187,9 @@ html, body {
 
 .movie-title:hover {
     color: #FFD700;
+}
+
+.mt-2 {
+    justify-content: center;
+    align-items: center;
 }
