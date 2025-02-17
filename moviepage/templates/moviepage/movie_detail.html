@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'moviepage/movie_detail.css' %}">
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster img-fluid" style="max-width: 100%; height: auto; min-width: 40%">
+        </div>
+
+        <div class="col-md-9">
+            <h2>{{ movie.title }} ({{ movie.year }})</h2>
+            <p><strong>Rated:</strong> {{ movie.rated }}</p>
+            <p><strong>Runtime:</strong> {{ movie.runtime }}</p>
+            <p><strong>Released:</strong> {{ movie.released }}</p>
+            <p><strong>Genre:</strong> {{ movie.genre }}</p>
+            <p><strong>Director:</strong> {{ movie.director }}</p>
+            <p><strong>Writer(s):</strong> {{ movie.writer }}</p>
+            <p><strong>Actors:</strong> {{ movie.actors }}</p>
+            <p><strong>Plot:</strong> {{ movie.plot }}</p>
+            <p><strong>IMDB Rating:</strong> {{ movie.imdb_rating }}</p>
+            <p><strong>Awards:</strong> {{ movie.awards }}</p>
+            <p><strong>Language:</strong> {{ movie.language }}</p>
+            <p><strong>Country:</strong> {{ movie.country }}</p>
+            <p>
+                <span><strong>Price:</strong></span>
+                <span class="text-danger font-weight-bold">${{ movie.price }}</span>
+            </p>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <p class="card-text">
+            <form method="POST" action="{% url 'cart.add' id=movie.imdb_id %}">
+                <div class="row">
+                    {% csrf_token %}
+                    <div class="col-auto">
+                        <div class="input-group col-auto">
+                            <div class="input-group-text">Quantity</div>
+                            <input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn bg-dark text-white" type="submit">Add to cart</button>
+                    </div>
+                </div>
+            </form>
+            </p>
+            <ul class="list-group">
+                {% if user.is_authenticated %}
+                <div class="container mt-4">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="card shadow p-3 mb-4 rounded">
+                                <div class="card-body">
+                                    <h3 class="text-start text-center">Create a review
+                                    </h3><br /><br />
+                                    <form method="POST" action= "{% url 'moviepage.create_review' movie.imdb_id %}">
+                                        {% csrf_token %}
+                                        <p>
+                                            <label for="comment">Comment:</label>
+                                            <textarea name="comment" required
+                                                      class="form-control"
+                                                      id="comment"></textarea>
+                                        </p>
+                                        <div class="text-center">
+                                            <button type="submit"
+                                                    class="btn bg-dark text-white">
+                                                Add Review
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="reviews">
+                <h2>Reviews</h2>
+                <hr />
+                {% for review in reviews %}
+                <li class="list-group-item pb-3 pt-3">
+                    <h5 class="card-title">
+                        Review by {{ review.user.username }}
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        {{ review.date }}
+                    </h6>
+                    <p class="card-text">{{ review.comment }}</p>
+                    {% if user.is_authenticated and user == review.user %}
+                    <div class="edit">
+                        <a class="btn bg-dark text-white"
+                            href="{% url 'moviepage.edit_review' movie.imdb_id review.id %}">Edit
+                        </a>
+                    </div>
+                    <a class="btn bg-red text-white" href="{% url 'moviepage.delete_review' movie.imdb_id review.id  %}">Delete</a>
+                    {% endif %}
+                </li>
+                {% endfor %}
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
