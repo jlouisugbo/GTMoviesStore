@@ -126,7 +126,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = '/static/'
+STATIC_URL = 'GTmovies/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'GTmovies/static')]
 
