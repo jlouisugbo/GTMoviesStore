@@ -1,5 +1,4 @@
 body {
-    font-family: 'Verdana', sans-serif;
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
@@ -122,6 +121,15 @@ body {
     .button-container {
         justify-content: center;
     }
+}
+
+/* reviews*/
+.reviews {
+    padding: 2vw;
+}
+
+.edit {
+    padding-bottom: 0.5vw;
 }
 
 

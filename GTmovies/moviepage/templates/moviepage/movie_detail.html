@@ -53,8 +53,8 @@
                         <div class="col-12">
                             <div class="card shadow p-3 mb-4 rounded">
                                 <div class="card-body">
-                                    <b class="text-start">Create a review
-                                    </b><br /><br />
+                                    <h3 class="text-start text-center">Create a review
+                                    </h3><br /><br />
                                     <form method="POST" action= "{% url 'moviepage.create_review' movie.imdb_id %}">
                                         {% csrf_token %}
                                         <p>
@@ -76,6 +76,7 @@
                     </div>
                 </div>
                 {% endif %}
+                <div class="reviews">
                 <h2>Reviews</h2>
                 <hr />
                 {% for review in reviews %}
@@ -88,13 +89,16 @@
                     </h6>
                     <p class="card-text">{{ review.comment }}</p>
                     {% if user.is_authenticated and user == review.user %}
-                    <a class="btn btn-primary"
-                       href="{% url 'moviepage.edit_review' movie.imdb_id review.id %}">Edit
-                    </a>
-                    <a class="btn btn-danger" href="{% url 'moviepage.delete_review' movie.imdb_id review.id  %}">Delete</a>
+                    <div class="edit">
+                        <a class="btn bg-dark text-white"
+                            href="{% url 'moviepage.edit_review' movie.imdb_id review.id %}">Edit
+                        </a>
+                    </div>
+                    <a class="btn bg-red text-white" href="{% url 'moviepage.delete_review' movie.imdb_id review.id  %}">Delete</a>
                     {% endif %}
                 </li>
                 {% endfor %}
+                </div>
             </ul>
         </div>
     </div>
