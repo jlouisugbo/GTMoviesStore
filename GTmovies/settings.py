@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%b)^fuzu9enkc6^mic^l1&8aztqyasj!%k$1h3*p8677(3_902
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gt-movies-store.onrender.com']
 
 OMDB_API_KEY = os.getenv('OMBD_API_KEY', 'b6f333b9')
 # Application definition
