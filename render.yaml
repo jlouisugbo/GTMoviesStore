@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: gt-movies-store
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn gt_movies_store.wsgi:application
+    preDeployCommand: |
+      python manage.py migrate --noinput
+      python manage.py collectstatic --noinput
