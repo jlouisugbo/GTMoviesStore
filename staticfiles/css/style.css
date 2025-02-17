@@ -1,0 +1,195 @@
+/* General Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+.container {
+    max-width: 1250px;
+}
+
+.card {
+    margin-top: 50px;
+}
+
+/* Background */
+.bg-index {
+    background: url("../../static/img/background.jpg") no-repeat fixed;
+    background-size: 100% auto;
+}
+
+.bg-dark {
+    background-color: #070e3d !important;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #070e3d !important;
+}
+
+.navbar a.nav-link {
+    color: #FFFEF6 !important;
+}
+
+.navbar a.nav-link:hover {
+    color: #FFD700 !important;
+}
+
+.navbar-nav {
+    padding-right: 15px;
+}
+
+.nav-link:hover {
+    color: #FFD700 !important;
+}
+
+/* Footer */
+.ms-footer, .ms-footer-bottom {
+    background-color: #0b1444 !important; /* Updated to match navbar */
+    color: white;
+}
+
+.ms-footer p {
+    color: #d5d9e3;
+    font-size: 13px;
+}
+
+.ms-footer-bottom span {
+    font-size: 13px;
+    line-height: 38px;
+}
+
+.ms-footer-bottom a {
+    color: #d5d9e3;
+    text-decoration: none;
+}
+
+.ms-footer-bottom a:hover {
+    color: #FFD700;
+}
+
+/* Buttons */
+.btn {
+    background-color: #070e3d !important;
+    color: white;
+    border-radius: 0.25rem;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Change button background and text color on hover */
+.btn:hover {
+    background-color: #FFD700;
+    color: #070e3d;
+}
+
+/* Change only the button text color on hover */
+.btn:hover {
+    color: #FFD700 !important;
+}
+
+/* Search Button */
+.search-btn {
+    background-color: #070e3d !important;
+    color: white;
+    border-radius: 0.25rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.search-btn .form-control, .btn {
+    height: fit-content;
+    display: flex;
+    width: fit-content;
+}
+
+/* Forms */
+.form-control {
+    border-radius: 0.25rem;
+    padding: 10px;
+}
+
+.form-control:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+/* Password Reset Page */
+.card-body form {
+    padding: 2rem;
+}
+
+.card-body h2 {
+    color: #FFD700;
+}
+
+/* Links */
+.text-center a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+/* Images */
+.about-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.img-card-200 {
+    width: fit-content;
+    max-height: 200px;
+}
+
+.img-card-400 {
+    width: fit-content;
+    max-height: 400px;
+}
+
+/* Login */
+.text-end {
+    display: flex;
+}
+
+#login {
+    width: 20%;
+    color: white;
+}
+
+#login:hover {
+    color: #FFD700 !important;
+    text-decoration: none;
+}
+
+.movie-title {
+    text-decoration: none;
+    color: #070e3d;
+    font-weight: bold;
+}
+
+.movie-title:hover {
+    color: #FFD700;
+}
+
+.mt-2 {
+    justify-content: center;
+    align-items: center;
+}
