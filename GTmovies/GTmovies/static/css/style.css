@@ -179,3 +179,13 @@ html, body {
     color: #FFD700 !important;
     text-decoration: none;
 }
+
+.movie-title {
+    text-decoration: none;
+    color: #070e3d;
+    font-weight: bold;
+}
+
+.movie-title:hover {
+    color: #FFD700;
+}

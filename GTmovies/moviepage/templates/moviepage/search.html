@@ -19,7 +19,7 @@
                         <img src="{{ movie.poster }}" alt="{{ movie.title }}">
                         <div class="movie-info">
                             <h2>
-                                <a href="{% url 'movie_detail' movie.imdb_id %}">
+                                <a class="movie-title" href="{% url 'movie_detail' movie.imdb_id %}">
                                     {{ movie.title }} ({{ movie.year }})
                                 </a>
                             </h2>
