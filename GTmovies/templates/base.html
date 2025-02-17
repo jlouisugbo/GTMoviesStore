@@ -59,7 +59,17 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-100%); /* Keep moving until the content goes out of view */
+                transform: translateX(-100vw); 
+            }
+        }
+
+        @media (max-width: 767px) {
+            .movie-scroll {
+                animation: scroll 200s linear infinite;
+            }
+            .movie-poster {
+                height: 150px;
+                margin: 0 5px; 
             }
         }
     </style>
