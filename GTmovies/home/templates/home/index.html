@@ -6,6 +6,13 @@
   <div class="container d-flex align-items-center flex-column pt-2">
     <h2>Movies Store</h2>
     <p>Your Ticket to Unlimited Entertainment!</p>
+    <div class="movie-scroll-container">
+        <div class="movie-scroll">
+            {% for movie in movies %}
+                <img src="{{ movie.poster }}" alt="{{ movie.title }}" class="movie-poster">
+            {% endfor %}
+        </div>
+    </div>
   </div>
 </header>
 <div class="p-3">
